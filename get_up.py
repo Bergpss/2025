@@ -68,7 +68,7 @@ def get_today_get_up_status(issue):
         "Asia/Shanghai"
     )
     # 2025-01-01 has a init comment
-    is_today = ((latest_day.day == now.day) and (latest_day.month == now.month)) or (now.to_date_string() == "2025-01-01")
+    is_today = (latest_day.day == now.day) and (latest_day.month == now.month) and (latest_day.to_date_string() != "2025-01-01")
     return is_today
 
 
