@@ -67,7 +67,8 @@ def get_today_get_up_status(issue):
     latest_day = pendulum.instance(latest_comment.created_at).in_timezone(
         "Asia/Shanghai"
     )
-    is_today = (latest_day.day == now.day) and (latest_day.month == now.month)
+    # 2025-01-01 has a init comment
+    is_today = (latest_day.day == now.day) and (latest_day.month == now.month) or (now.to_date_string() == "2025-01-01")
     return is_today
 
 
