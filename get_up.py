@@ -68,8 +68,9 @@ def get_today_get_up_status(issue):
         "Asia/Shanghai"
     )
     # 2025-01-01 has a init comment
-    first_day = pendulum.datetime(2025, 1, 1)
-    is_today = (latest_day.day == now.day) and (latest_day.month == now.month) and (latest_day.to_date_string() != first_day.to_date_string())
+    if latest_day.day == 1 and latest_day.month == 1:
+        return False
+    is_today = (latest_day.day == now.day) and (latest_day.month == now.month)
     return is_today
 
 
